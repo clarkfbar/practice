@@ -1,0 +1,140 @@
+body {
+  font-family: Microsoft Yahei;
+  background: #333333;
+}
+
+#clock > div {
+  position: relative;
+  float: left;
+  margin-right: 10px;
+}
+
+.hour,
+.second,
+.minute {
+  line-height: 80px;
+  height: 80px;
+  width: 100px;
+}
+
+.colon {
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 100px;
+  font-family: fantasy;
+
+  -webkit-animation-name: 'flash'; 
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-iteration-count: infinite;
+
+  margin-left: 10px;
+}
+
+@keyframes 'flash' {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes 'flash' {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.number {
+  line-height: 80px;
+  height: 80px;
+  width: 100px;
+  text-align: center;
+  font-size: 80px;
+  font-weight: bold;
+  color: #D7D7D7;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.number .top {
+  height: 40px;
+  overflow: hidden;
+  border-bottom: 1px solid black;
+  background: #070707;
+  -moz-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  padding: 15px 5px 0;
+
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.number .bottom {
+  height: 40px;
+  overflow: hidden;
+  background: #070707;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  padding: 0px 5px 15px;
+
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.number .bottom span {
+  position: relative;
+  top: -40px;
+  background: #070707;
+}
+
+.number.rotate .top {
+  -webkit-animation-name: 'flip'; 
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-iteration-count: 1;
+}
+
+@keyframes 'flip' {
+  from {
+    transform: rotateX(0);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  to {
+    transform: rotateX(180deg);
+  }
+}
+
+@-webkit-keyframes 'flip' {
+  from {
+    -webkit-transform:  rotateX(0);
+  }
+  50% {
+    -webkit-transform: rotateX(90deg);
+  }
+  to {
+    -webkit-transform: rotateX(180deg);
+  }
+}
