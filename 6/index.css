@@ -1,0 +1,17 @@
+img {
+  transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);   /* IE 9 */
+  -webkit-transform: rotateY(0deg); /* Safari and Chrome */
+  -o-transform: rotateY(0deg);    /* Opera */
+  -moz-transform: rotateY(0deg);  
+
+  transition: 1s;
+}
+
+img:hover {
+  transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);   /* IE 9 */
+  -webkit-transform: rotateY(180deg); /* Safari and Chrome */
+  -o-transform: rotateY(180deg);    /* Opera */
+  -moz-transform: rotateY(180deg);  
+}

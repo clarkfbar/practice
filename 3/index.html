@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <input type="text" id="num" value="1234567890"/>
+    <script type='text/javascript' src="http://cdn.gbtags.com/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+        var $input = $("#num");
+
+        $.fn.extend({
+          format: function(){
+            var num = $(this).val();
+            var result = "";
+
+            while(true){
+              if(result != "") {
+                result = "," + result;
+              }
+
+              // 从后往前贴
+              var begin = num.length - 3;
+              if(begin < 0) begin = 0;
+
+              result = num.substr(begin, 3) + result;
+              num = num.substring(0, begin);
+              
+              if(num.length == 0) break;
+            }
+
+            $(this).val(result);
+          }
+        });
+
+        $input.format();
+
+        $input.focus(function(){
+          $(this).val($(this).val().replace(/,/g, ""));
+        });
+
+        $input.change(function () {
+          $(this).format();
+        })
+
+      })(jQuery);
+    </script>
+  </body>
+</html>

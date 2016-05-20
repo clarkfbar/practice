@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head></head>
+  <body>
+    <input type="number" id="number">
+    <script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.mask.js"></script>
+    <script type="text/javascript">
+      $("#number").mask("999");
+      $("#number").on("keydown", function(e){
+        var key = e.keyCode;
+        return !(key == 69 || key == 107 || key == 109 || key == 187 || key == 189);
+      });
+    </script>
+  </body>
+</html>

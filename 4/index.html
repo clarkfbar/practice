@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html>
+  <head>
+    <style type="text/css">
+      table{
+        border: 1px solid #ccc;
+        font-size: 14px;
+      }
+       
+      table th{
+        background: orange;
+        color: #fff;
+        padding:10px;
+      }
+       
+      table td{
+        padding:10px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>列1</th>
+        <th>列2</th>
+        <th>列3</th>
+        <th>列4</th>
+      </tr>
+      <tr>
+        <td>数据1-1</td>
+        <td>数据1-2</td>
+        <td>数据1-3</td>
+        <td>数据1-4</td>
+      </tr>
+      <tr>
+        <td>数据2-1</td>
+        <td>数据2-2</td>
+        <td>数据2-3</td>
+        <td>数据2-4</td>
+      </tr>
+      <tr>
+        <td>数据3-1</td>
+        <td>数据3-2</td>
+        <td>数据3-3</td>
+        <td>数据3-4</td>
+      </tr>
+    </table>
+    <script type='text/javascript' src="http://cdn.gbtags.com/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+        var $table = $("table");
+
+        $table.find("tr").each(function(){
+          $(this).find("td, th").each(function(index){
+            $(this).appendTo($table.find("tr:eq(" + index + ")"));
+          });
+        });
+      })(jQuery);
+    </script>
+  </body>
+</html>

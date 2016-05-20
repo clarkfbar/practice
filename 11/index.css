@@ -1,0 +1,135 @@
+@import "font-awesome.css";
+
+html {
+    background: #d7d9d9;
+    font-family: 'microsoft yahei' ,Arial,sans-serif;
+}
+ 
+*, html, body {
+    font-family: Open Sans;
+}
+ 
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+ 
+.container {
+    margin: 40px auto 0;
+    width: 143px;
+}
+ 
+.profile-container {
+    position: relative;
+    width: 143px;
+    float: left;
+}
+ 
+.profile {
+    background: #f6f6f6;
+    padding: 4px;
+    border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+ 
+.avatar img {
+    display: block;
+    border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+ 
+.follow {
+    margin: 4px 0 0 0;
+}
+ 
+.follow button {
+    display: block;
+    width: 100%;
+    border: 0;
+    background: #268cde;
+    color: white;
+    padding: 7px 0;
+    margin: 0;
+    border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.profile-list {
+  perspective: 200px;
+  -webkit-perspective: 200px;
+}
+
+.profile-list li {
+    padding: 10px;
+    background: white;
+    border-top: 1px solid #d7d9d9;
+    font-size: 14px;
+    color: #268cde;
+
+    transition: transform 0.3s, opacity 0.5s;
+    -webkit-transition:-webkit-transform 0.3s, opacity 0.5s; /* Safari and Chrome */
+
+    opacity: 0;
+    transform:rotateX(-90deg);
+    -webkit-transform:rotateX(-90deg); /* Safari and Chrome */
+
+    transform-origin: center 0;
+    -webkit-transform-origin: center 0;
+}
+
+.profile:hover+.profile-list li {
+    opacity: 1;
+    transform:rotateX(0deg);
+    -webkit-transform:rotateX(0deg); /* Safari and Chrome */
+
+    transition: transform 0.5s, opacity 0.1s;
+    -webkit-transition:-webkit-transform 0.5s, opacity 0.1s; /* Safari and Chrome */
+}
+
+.profile-list .third {
+  transition-delay: 0.2s;
+  -webkit-transition-delay: 0.2s;
+}
+.profile-list .second {
+  transition-delay: 0.4s;
+  -webkit-transition-delay: 0.4s;
+}
+.profile-list .first {
+  transition-delay: 0.6s;
+  -webkit-transition-delay: 0.6s;
+}
+
+.profile:hover+.profile-list .second {
+  transition-delay: 0.2s;
+  -webkit-transition-delay: 0.2s;
+}
+.profile:hover+.profile-list .third {
+  transition-delay: 0.4s;
+  -webkit-transition-delay: 0.4s;
+}
+.profile:hover+.profile-list .fourth {
+  transition-delay: 0.6s;
+  -webkit-transition-delay: 0.6s;
+}
+

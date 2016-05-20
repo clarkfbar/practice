@@ -1,0 +1,44 @@
+body {
+  background-color: #ecf0f1;
+  font-family: 'microsoft yahei',Arial,sans-serif;
+}
+
+#logo {
+  width: 100px;
+  height: 100px;
+  float: right;
+}
+
+#background {
+  background: url("http://www.gbtags.com/gb/networks/background/8a0efbd8-9c59-464b-b7ce-7ae49ddd0454.png") 0 50px repeat-x;
+  width: 100px;
+  height: 100px;
+  margin-top: 43px;
+  background-size: 30px;
+
+  animation: moveRight 15s;
+  -webkit-animation: moveRight 15s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes moveRight {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+@-webkit-keyframes moveRight {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%
+  }
+}
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>js把table导出xls</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+    <table id="excel" width='100%' border='0' align='center' cellpadding='5' cellspacing='1' bgcolor='#B3B3B3'>
+                <tr>
+                <th width='120' bgcolor='#EBEBEB'>账目分类</th>
+                <th width='50' bgcolor='#EBEBEB'>金额</th>
+                <th width='90' bgcolor='#EBEBEB'>支出/收入</th>
+                <th width='150' bgcolor='#EBEBEB'>时间</th>
+                <th width='60' bgcolor='#EBEBEB'>备注</th>
+                </tr>
+                
+
+      <tr>
+        <td align='center' bgcolor='#FFFFFF'>cabildo</td>
+        <td align='center' bgcolor='#FFFFFF'>56</td><td align='center' bgcolor='#FFFFFF'><font color='blue'>收入</font></td><td align='center' bgcolor='#FFFFFF'>2014-09-19 2:41</td><td align='center' bgcolor='#FFFFFF'>123</td></tr><tr>
+        <td align='center' bgcolor='#FFFFFF'>rivadavia</td>
+        <td align='center' bgcolor='#FFFFFF'>61</td><td align='center' bgcolor='#FFFFFF'><font color='blue'>收入</font></td><td align='center' bgcolor='#FFFFFF'>2014-09-19 2:42</td><td align='center' bgcolor='#FFFFFF'>123</td></tr>     </table><br />注意：导出后的文件用电脑的记事本方式打开，另存为Unicode编码，然后显示就正常了。<br /><br />
+    
+    <input type="button" onclick="daochu('excel')" value="导出搜索结果为xls excel文件">
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>

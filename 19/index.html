@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+    <div id="registerContainer">
+      <div class="container">
+        <div class="welcome-page page">
+          <h5><span class="username"></span>, 您好</h5>
+          <div><button data-label="立即注册" id="register">立即注册</button></div>
+        </div>
+
+        <div class="password-page page">
+          <h5>设置密码</h5>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-lock"></i>
+            </div>
+            <input id="password" name="password" type="password" placeholder="Password" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-lock"></i>
+            </div>
+            <input id="repassword" name="repassword" type="password" placeholder="Repassword" class="form-control">
+          </div>
+          <div class="submit">
+            <button name="submit" type="submit">
+              <span class="glyphicon glyphicon-arrow-right"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="email-page page">
+          <h5>用户信息</h5>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <input id="email" name="email" type="text" placeholder="E-mail" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-user"></i>
+            </div>
+            <input id="username" name="username" type="text" placeholder="Username" class="form-control">
+          </div>
+          <div class="submit">
+            <button name="submit" type="submit">
+              <span class="glyphicon glyphicon-arrow-right"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 推荐开源CDN来选取需引用的外部JS //-->
+    <script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

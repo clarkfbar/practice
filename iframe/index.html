@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+  <head>
+    <style type="text/css">
+      body {
+        background: aqua;
+      }
+
+      .monitor {
+        position: relative;
+      }
+
+      .monitor .screen {
+        width: 265px;
+        height: 146px;
+        background: rgba(255,255,255, 0.5);
+        border-radius: 8px;
+        z-index: 2;
+        border: 10px black outset;
+        border-bottom-width: 20px;
+        -webkit-box-shadow: 1px 1px 5px #333333 inset, -1px -1px 5px #333333 inset, 1px 1px 2px #333333, -1px -1px 2px #333333;
+        position: relative;
+      }
+
+      .monitor .screen:after {
+          content: "acer";
+          color: silver;
+          position: absolute;
+          bottom: -19px;
+          left: 110px;
+          font-family: Microsoft Yahei;
+      }
+
+      .monitor .screen:hover {
+        background: white;
+      }
+
+      .monitor .stander {
+          width: 40px;
+          height: 0;
+          display: inline-block;
+          border-bottom: 32px solid black;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-radius: 4px;
+          position: relative;
+          left: 110px;
+      }
+
+      .monitor .bottom {
+          width: 60px;
+          height: 65px;
+          background: black;
+          position: absolute;
+          bottom: -23px;
+          left: 105px;
+          border-radius: 30px;
+          transform: rotateX(65deg);
+          z-index: 2;
+      }
+
+      .monitor.dell .screen{
+        width: 163px;
+        height: 146px;
+        border-bottom-width: 10px;
+      }
+
+      .monitor.dell .screen:after {
+        content: "DELL";
+        left: 67px;
+        font-size: 12px;
+        bottom: -13px;
+      }
+
+      .monitor.dell .stander {
+        left: 65px;
+        border-bottom-width: 23px;
+      }
+
+      .monitor.dell .bottom {
+        left: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="monitor" id="monitor1">
+      <div class="screen"></div>
+      <div class="stander"></div>
+      <div class="bottom"></div>
+    </div>
+
+    <div class="monitor dell" id="monitor2">
+      <div class="screen"></div>
+      <div class="stander"></div>
+      <div class="bottom"></div>
+    </div>
+  </body>
+</html>

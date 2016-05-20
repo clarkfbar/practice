@@ -1,0 +1,59 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+html {font:14px/24px arial;}
+html, body {height:100%;color:#fff;}
+body, p {padding:0;margin:0;}
+body {background-color:#308ec9;perspective:1000px;}
+.keyboard {width:898px;padding:5px;background:rgba(255, 255, 255, 0.2);border:solid 1px rgba(255, 255, 255, 0.2);border-radius:5px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotateX(0);transform-style:preserve-3d;transition:all .4s;}
+
+.keyboard:hover {transform:translate(-50%,-50%) rotateX(25deg) rotateY(5deg);}
+
+.keyboard ul {display:block;font-size:0;line-height:0;padding:5px 0;}
+.keyboard li {cursor: pointer;font-size:1rem;line-height:50px;display:inline-block;width:50px;height:50px;text-align:center;border:solid 1px rgba(255, 255, 255, 0.4);background:rgba(255, 255, 255, 0.2);border-radius:5px;margin:0 5px;position:relative;transition:all .2s;vertical-align:top;}
+.keyboard li:after {height:100%;width:100%;background:rgba(255, 255, 255, 0.2);transform:scale(1.2);content:'';border-radius:5px;display:block;position:absolute;top:0;left:0;}
+.keyboard li:hover {transform:scale(.9);border-color:#fff;background:rgba(255, 255, 255, 0.4);}
+
+.keyboard ul:nth-child(1) {padding-bottom:15px;}
+.keyboard ul:nth-child(1) li:nth-child(1) {margin-right:35px;}
+.keyboard ul:nth-child(1) li:nth-child(5) {margin-right:36px;}
+.keyboard ul:nth-child(1) li:nth-child(9) {margin-right:36px;}
+
+.keyboard ul:nth-child(2) {}
+.keyboard ul:nth-child(2) li:last-child {width:80px;}
+.keyboard ul:nth-child(2) li:last-child:after {transform:scale(1.13, 1.2);}
+
+.keyboard ul:nth-child(3) {}
+.keyboard ul:nth-child(3) li:nth-child(1) {width:80px;}
+.keyboard ul:nth-child(3) li:nth-child(1):after {transform:scale(1.13, 1.2);}
+
+.keyboard ul:nth-child(4) {}
+.keyboard ul:nth-child(4) li:nth-child(1) {width:90px;}
+.keyboard ul:nth-child(4) li:nth-child(1):after {transform:scale(1.11, 1.2);}
+.keyboard ul:nth-child(4) li:last-child {width:102px;}
+.keyboard ul:nth-child(4) li:last-child:after {transform:scale(1.10, 1.2);}
+
+.keyboard ul:nth-child(5) {}
+.keyboard ul:nth-child(5) li:nth-child(1) {width:110px;}
+.keyboard ul:nth-child(5) li:nth-child(1):after {transform:scale(1.09, 1.2);}
+.keyboard ul:nth-child(5) li:last-child {width:144px;}
+.keyboard ul:nth-child(5) li:last-child:after {transform:scale(1.07, 1.2);}
+
+.keyboard ul:nth-child(6) {}
+.keyboard ul:nth-child(6) li {width:70px;}
+.keyboard ul:nth-child(6) li:after {transform:scale(1.13, 1.2);}
+.keyboard ul:nth-child(6) li:nth-child(2),
+.keyboard ul:nth-child(6) li:nth-child(6) {perspective:10px;}
+.keyboard ul:nth-child(6) li:nth-child(2) .windows,
+.keyboard ul:nth-child(6) li:nth-child(6) .windows {padding:0 15px;font-size:0;line-height:0;padding-top:6px;transform:rotateY(-5deg) scale(1,.8) translate(-2px,2px);}
+.keyboard ul:nth-child(6) li:nth-child(2) p,
+.keyboard ul:nth-child(6) li:nth-child(6) p {width:16px;height:16px;background:#fff;display:inline-block;margin:1px;}
+
+.keyboard ul:nth-child(6) li:nth-child(4) {width:312px;}
+.keyboard ul:nth-child(6) li:nth-child(4):after {transform:scale(1.03, 1.2);}
+
+.keyboard ul:nth-child(6) li:nth-child(7) {}
+.keyboard ul:nth-child(6) li:nth-child(7) .box {width:30%;height:60%;border:solid 1px #fff;margin:13% auto;position:relative;}
+.keyboard ul:nth-child(6) li:nth-child(7) .box:before {height:1px;width:70%;background:#fff;position:absolute;top:30%;left:15%;content:'';}
+.keyboard ul:nth-child(6) li:nth-child(7) .box:after {height:1px;width:70%;background:#fff;position:absolute;bottom:30%;left:15%;content:'';}
+.keyboard ul:nth-child(6) li:nth-child(7) .box p {height:1px;width:70%;background:#fff;position:absolute;top:49%;left:15%;}
+.keyboard ul:nth-child(6) li:nth-child(7):after {}

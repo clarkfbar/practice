@@ -1,0 +1,40 @@
+
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+    <div id="container">
+      <li>Java<i class="fa fa-times pull-right"></i></li>
+      <li>Javascript<i class="fa fa-times pull-right"></i></li>
+      <li>HTML<i class="fa fa-times pull-right"></i></li>
+      <li>CSS<i class="fa fa-times pull-right"></i></li>
+      <li>PHP<i class="fa fa-times pull-right"></i></li>
+    </div>
+    <script type='text/javascript' src="http://cdn.gbtags.com/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+        var moreTemplate = '<li class="more">添加更多<i class="fa fa-times pull-right"></i></li>';
+        var $container = $("#container");
+
+        $("body").click(function(e){
+          if($(e.target).hasClass("fa-times")) {
+            return false;
+          } else {
+            var $more = $(moreTemplate);
+            $container.prepend($more);
+            $more.slideDown();
+          }
+        });
+
+        $container.on("click", ".fa-times", function(){
+          var $row =  $(this).parent();
+          $row.animate({"margin-left": "-100%", "margin-right": "100%"}, function(){
+            $(this).remove();
+          });
+        });
+      })(jQuery);
+    </script>
+  </body>
+</html>

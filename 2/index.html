@@ -1,0 +1,114 @@
+﻿
+<!doctype html>
+<html>
+  <head>
+    <style type="text/css">
+      .contaniner {
+        background: #333;
+      }
+
+      .nine td {
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+        line-height: 80px;
+        text-align: center;
+      }
+
+      .nine .item {
+        background: white;
+        color: black;
+      }
+
+      .nine .active {
+        background: #f44336;
+        color: white;
+      }
+
+      .nine .center {
+        background: #5bc0de;
+      }
+
+      .nine .btn-start {
+        color: white;
+        text-decoration: none;
+
+        display: inline-block;
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+        line-height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contaniner">
+      <table class="nine">
+        <tbody>
+          <tr>
+            <td class="item" data-index="1">萌妹子</td>
+            <td class="item" data-index="2">如花</td>
+            <td class="item" data-index="3">女汉子</td>
+          </tr>
+          <tr>
+            <td class="item active" data-index="8">女神</td>
+            <td class="center">
+              <a href="javascript:void(0);" class="btn-start">开始</a>
+            </td>
+            <td class="item" data-index="4">苍老师</td>
+          </tr>
+          <tr>
+            <td class="item" data-index="7">凤姐</td>
+            <td class="item" data-index="6">郭美美</td>
+            <td class="item" data-index="5">人妖</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script type='text/javascript' src="http://cdn.gbtags.com/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+        var Nine = function(options){
+          var index = 8;
+          var total = 8;
+
+          // 变换的最小次数和变换值
+          var min = options && options.min ? options.min : 20;
+          var gap = options && options.gap ? options.gap : 30;
+
+          function active(time){
+              index ++;
+              index = (index > total) ? (index - total) : index;
+
+              $(".active").removeClass("active");
+              var $current = $(".item[data-index='" + index + "']").addClass("active");
+
+              if(--time === 0) {
+                alert("恭喜您获得" + $current.html());
+                return;
+              } else {
+                setTimeout(function(){
+                  active(time);
+                }, 1000.00/time);
+              }
+          }
+
+          this.start = function(){
+            // 当前变换的次数
+            var time = parseInt(Math.random() * gap) + min;
+
+            setTimeout(function(){
+              active(time);
+            }, 1000.00/time)
+          }
+        };
+
+        var nine = new Nine({min: 50, gap: 70});
+
+        $(".btn-start").click(function(){
+          nine.start();
+        });
+      })(jQuery);
+    </script>
+  </body>
+</html>

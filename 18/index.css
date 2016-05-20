@@ -1,0 +1,55 @@
+body {
+  background: #e74c3c;
+}
+
+#center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#mid2 {
+  width: 270px;
+  height: 270px;
+  margin: 0px auto;
+  position: relative;
+  border-radius: 50%;
+  transform: scale(0.7, 0.7);
+  background: #ecf0f1;
+}
+
+#eye {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: #B0AEA9;
+  box-shadow: 0px -1px 0px 12px #B7B6B0 ,inset 0px 2px 0px 0px rgba(0, 0, 0, 0.21),inset 0px -2px 0px 0px rgba(0, 0, 0, 0.21);
+  position: absolute;
+  margin: 36px 35px auto;
+}
+
+#eye:before {
+  content: "";
+  width: 140px;
+  height: 140px;
+  background: #56544B;
+  border-radius: 50%;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  box-shadow: inset 0px 0px 10px 2px rgba(86, 84, 75, 0.7),inset 20px 30px 0px 25px #F0C400,0px 2px 0px 0px rgba(0, 0, 0, 0.21), 0px -2px 0px 0px rgba(0, 0, 0, 0.21);
+  border: 15px solid #A4A29D;
+}
+
+.text3d {
+  text-shadow: 0px 1px 0px rgb(204, 204, 204), 0px 2px 0px rgb(201, 201, 201), 0px 3px 0px rgb(187, 187, 187), 0px 4px 0px rgb(185, 185, 185), 0px 5px 0px rgb(170, 170, 170), 0px 6px 1px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.25), 0px 20px 20px rgba(0, 0, 0, 0.15);
+  color: #FFFFFF;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2em;
+  margin: 1px;
+  font-family: 'microsoft yahei' ,Arial,sans-serif;
+  font-weight: 300;
+}

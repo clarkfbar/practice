@@ -1,0 +1,223 @@
+<!-- HTML代码片段中请勿添加<body>标签 //-->
+<div class="wrap">
+  <div class="wait">
+    <div class="hr hr1"></div>
+    <div class="c c1">
+      <div class="circle"></div>
+    </div>
+    <div class="c c2">
+      <div class="circle"></div>
+    </div>
+    <div class="c c3">
+      <div class="circle"></div>
+    </div>
+    <div class="c c4">
+      <div class="circle"></div>
+    </div>
+    <div class="hr hr2"></div>
+  </div>
+</div>
+
+
+<style>
+  /*CSS源代码*/
+  body {margin: 0;}
+
+  .wrap {
+    margin: 50px auto;
+    width: 100px;
+    height: 96px;
+  }
+
+  @-webkit-keyframes expand {
+    0% { width: 0% }
+    25%, 75% { width: 100%;left: 0; }
+    100% { left: 100%; }
+  }
+  @keyframes expand {
+    0% { width: 0% }
+    25%, 75% { width: 100%;left: 0; }
+    100% { left: 100%; }
+  }
+
+  @-webkit-keyframes r1 {
+    0% { -webkit-transform: rotate(-90deg); }
+    12.5%, 87.5% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(90deg); }
+  }
+  @keyframes r1 {
+    0% { transform: rotate(-90deg); }
+    12.5%, 87.5% { transform: rotate(0deg); }
+    100% { transform: rotate(90deg); }
+  }
+
+  @-webkit-keyframes r2 {
+      0% { -webkit-transform: rotate(-70deg); }
+      12.5%, 87.5% { -webkit-transform: rotate(0deg); }
+      100% {-webkit-transform: rotate(90deg);}
+  }
+  @keyframes r2 {
+      0% { transform: rotate(-70deg); }
+      12.5%, 87.5% { transform: rotate(0deg); }
+      100% {transform: rotate(90deg);}
+  }
+
+  @-webkit-keyframes r3 {
+      0% { -webkit-transform: rotate(90deg); }
+      12.5%, 87.5% { -webkit-transform: rotate(20deg); }
+      100% { -webkit-transform: rotate(-50deg); }
+  }
+  @keyframes r3 {
+      0% { transform: rotate(90deg); }
+      12.5%, 87.5% { transform: rotate(20deg); }
+      100% { transform: rotate(-50deg); }
+  }
+
+  @-webkit-keyframes r4 {
+      0% { -webkit-transform: rotate(90deg); }
+      12.5%, 87.5% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(-90deg); }
+  }
+  @keyframes r4 {
+      0% { transform: rotate(90deg); }
+      12.5%, 87.5% { transform: rotate(0deg); }
+      100% { transform: rotate(-90deg); }
+  }
+
+  .wait {
+    position: relative;
+    width: 100px;
+    height: 96px;
+    overflow: hidden;
+  }
+  .hr {
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    height: 4px;
+    overflow: hidden;
+  }
+  .hr2 {
+    bottom: 0;
+  }
+  .hr:after {
+    position: absolute;
+    content: '';
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: #000;
+  }
+  .c {
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+  }
+  .c .circle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+  .c1, .c3 {
+    left: 0;
+  }
+  .c2, .c4 {
+    right: 0;
+  }
+  .c3, .c4 {
+    bottom: 0;
+  }
+  .c .circle:after {
+    position: absolute;
+    content: '';
+    width: 92px;
+    height: 92px;
+    border: 4px solid #000;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+  }
+  .c1 .circle:after {
+    top: -50px;
+    left: 0;
+  }
+  .c2 .circle:after {
+    top: -50px;
+    right: 0;
+  }
+  .c3 .circle:after {
+    bottom: -50px;
+    left: 0;
+  }
+  .c4 .circle:after {
+    right: 0;
+    bottom: -50px;
+  }
+  .c1 .circle {
+    -webkit-transform-origin: right top;
+    transform-origin: right top;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+  .c2 {
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+  }
+  .c2 .circle {
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: rotate(-70deg);
+    transform: rotate(-70deg);
+  }
+  .c3 {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+  }
+  .c3 .circle {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  .c4 .circle {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+  .hr1:after {
+    -webkit-animation: expand 4s linear infinite;
+    animation: expand 4s linear infinite;
+  }
+  .c1 .circle {
+    -webkit-animation: r1 4s linear 3.5s infinite;
+    animation: r1 4s linear 3.5s infinite;
+  }
+  .c2 .circle {
+    -webkit-animation: r2 4s linear 1s infinite;
+    animation: r2 4s linear 1s infinite;
+  }
+  .c3 .circle {
+    -webkit-animation: r3 4s linear 1.5s infinite;
+    animation: r3 4s linear 1.5s infinite;
+  }
+  .c4 .circle {
+    -webkit-animation: r4 4s linear 3s infinite;
+    animation: r4 4s linear 3s infinite;
+  }
+  .hr2:after {
+    -webkit-animation: expand 4s linear 2s infinite;
+    animation: expand 4s linear 2s infinite;
+  }
+</style>

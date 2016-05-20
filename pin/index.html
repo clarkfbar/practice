@@ -1,0 +1,91 @@
+<style type="text/css">
+  body{
+    background:#CFCFCF;
+    min-height: 1200px;
+  }
+
+  #container {
+    width: 500px;
+    height: 400px;
+    background-color: #fff;
+  }
+  .right,
+  .left {
+    width: 100px;
+    height: 400px;
+    float: left;
+    background-color: #dd4814;
+  }
+
+  .middle {
+    width: 300px;
+    height: 400px;
+    float: left;
+    background-color: blue;
+  }
+  .r-pin,
+  .pin {
+    width: 100px;
+    height: 50px;
+    background: white;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+  }
+
+  .fixed {
+    background-color: yellow;
+  }
+</style>
+
+<!-- HTML代码片段中请勿添加<body>标签 //-->
+<div id="container">
+  <div class="left">
+    <div class="pin">PIN</div>
+  </div>
+  <div class="middle"></div>
+  <div class="right">
+    <div class="r-pin">PIN</div>
+  </div>
+</div>
+
+
+<!-- 推荐开源CDN来选取需引用的外部JS //-->
+<script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.pin.js"></script>
+<script type="text/javascript">
+(function(){
+  $(".pin").pin({
+    top: 5,
+    bottom: 50,
+    container: ".left",
+    activeClass: "fixed",
+    bottomClass: "static"
+  });
+
+  $(".r-pin").pin({
+    top: 5,
+    bottom: 5,
+    container: ".right",
+    activeClass: "fixed-r",
+    bottomClass: "static-r"
+  });
+})(jQuery);
+</script>
+
+<TITLE>新商盟</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=renderer content=webkit>
+<META content=IE=edge httpEquiv="X-UA-Compatible"><LINK rel=stylesheet href="skins/css/index_201508.css">
+<STYLE type=text/css media=screen>#FlashHttpRequest_gateway {
+  VISIBILITY: hidden
+}
+</STYLE>
+
+
+<TITLE>浏览器版本过低</TITLE>
+<META content=IE=edge httpEquiv="X-UA-Compatible">
+<META name=renderer content=webkit><LINK rel=icon type=image/x-icon href="/xinyunlian-ecom/static/favicon.ico"><LINK rel="shortcut icon" type=image/x-icon href="/xinyunlian-ecom/static/favicon.ico">
+<META content="text/html; charset=utf-8" http-equiv=content-type>
+<META name=author content="Hengtiansoft Team">
+<META name=copyright content=Hengtiansoft><LINK rel=stylesheet type=text/css href="http://localhost:8080/xinyunlian-ecom/static/resources/shop/css/common.css"><LINK rel=stylesheet type=text/css href="http://localhost:8080/xinyunlian-ecom/static/resources/shop/css/notSupport.css">

@@ -1,0 +1,35 @@
+
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+    <form id="loginForm" action="/login" method="POST">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-user"></i>
+        </div>
+        <input id="username" name="username" type="text" placeholder="Username" class="form-control">
+      </div>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-lock"></i>
+        </div>
+        <input id="password" name="password" type="password" placeholder="Password" class="form-control">
+      </div>
+      <div class="submit">
+        <button id="submit" name="submit" type="submit">
+          <span class="glyphicon glyphicon-arrow-right"></span>
+        </button>
+      </div>
+      <div class="hanger">
+        <img src="hanger1.png">
+        <button id="register" type="button" onclick="location.href='#'">注册</button>
+      </div>
+    </form>
+    <script src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.gbtags.com/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

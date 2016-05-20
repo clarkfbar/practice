@@ -1,0 +1,25 @@
+<html ng-app="myApp">
+  <head>
+  </head>
+  <body>
+    <div ng-controller='CartController'>
+      <h1>Your Order</h1>
+      <div ng-repeat='item in items' ng-show="item.show" ng-class="{first: item.first}">
+        <span ng-bind="item.title"></span>
+        <input ng-model='item.quantity'>
+        <span ng-bind="item.price | currency"></span>
+        <span ng-bind="item.price * item.quantity | currency"></span>
+        <button ng-click='remove($index)'>Remove</button>
+      </div>
+    </div>
+    <div ng-controller='typeController'>
+      <span ng-bind="text" ng-click="data=6"></span>
+      <div ng-controller='innerController'>
+        <span ng-bind="data"></span>
+      </div>
+    </div>
+    <script src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="controllers.js"></script>
+  </body>
+</html>

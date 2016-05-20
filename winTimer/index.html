@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+  <body>
+    <div id="datePop" class="hidden">
+      <div>
+        <div class="top">
+          <a href="javascript:;" class="currentDate" title="回到今天"></a>
+        </div>
+        <div class="middle">
+          <!-- 中间左侧的日历 -->
+          <div class="left">
+            <div class="date">
+              <span class="arrow before"></span>
+              <div class="showDate"></div>
+              <span class="arrow after"></span>
+            </div>
+            <div class="tableContainer">
+              <table class="leftTable date-table">
+                <tbody></tbody>
+              </table>
+              <table class="dateTable date-table"></table>
+              <table class="rightTable date-table"></table>
+            </div>
+          </div>
+          <!-- 中间左侧的日历结束 -->
+          <!-- 中间右侧的钟表 -->
+          <div class="right">
+            <div id="watch">
+              <div class="watch-base"></div>
+              <ul class="minute-li">
+                <li></li><li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li><li></li>
+              </ul>
+              <div class="hour hidden"></div>
+              <div class="minutes hidden"></div>
+              <div class="second hidden"></div>
+            </div>
+            <div class="timer-day">
+              <div class="timer"></div>
+              <div class="day"></div>
+            </div>
+          </div>
+          <!-- 中间右侧的钟表结束 -->
+        </div>
+        <div class="bottom"><a href="javascript:;">Change date and time settings...</a></div>
+      </div>
+    </div>
+    <script type="text/template" id="dateTableTemplate">
+      <thead>
+        <tr>
+          <th><div><span>日</span></div></th>
+          <th><div><span>一</span></div></th>
+          <th><div><span>二</span></div></th>
+          <th><div><span>三</span></div></th>
+          <th><div><span>四</span></div></th>
+          <th><div><span>五</span></div></th>
+          <th><div><span>六</span></div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td></tr>
+        <tr><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td></tr>
+        <tr><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td></tr>
+        <tr><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td></tr>
+        <tr><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td></tr>
+        <tr><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td><td><div><span></span></div></td></tr>
+      </tbody>
+    </script>
+    <script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>

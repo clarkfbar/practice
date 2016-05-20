@@ -1,0 +1,99 @@
+/*CSS源代码*/
+body{
+  background:#CFCFCF;
+  font-family: 'microsoft yahei',Arial,sans-serif;
+  overflow-y: scroll;
+}
+ 
+#ads{
+  font-size:14px;
+  position: absolute;
+  right:0;
+  bottom: 0;
+  background: #222;
+  padding: 10px;
+  color: #FFF;
+  border-radius: 3px;
+
+  animation:jump 2.5s;
+  -webkit-animation:jump 2.5s; /* Safari 和 Chrome */
+}
+
+/* 从小到大，慢慢的旋转显示 */
+@keyframes jump {
+  from {
+    transform:rotate(720deg) scale(0);
+    -webkit-transform:rotate(720deg) scale(0); /* Safari 和 Chrome */
+    opacity: 0;
+  }
+
+  to {
+    transform:rotate(0deg) scale(1);
+    -webkit-transform:rotate(0deg) scale(1); /* Safari 和 Chrome */
+    opacity: 1;
+  }
+}
+
+/* 从小到大，慢慢的旋转显示 */
+@-webkit-keyframes jump {
+  from {
+    transform:rotate(720deg) scale(0);
+    -webkit-transform:rotate(720deg) scale(0); /* Safari 和 Chrome */
+    opacity: 0;
+  }
+
+  to {
+    transform:rotate(0deg) scale(1);
+    -webkit-transform:rotate(0deg) scale(1); /* Safari 和 Chrome */
+    opacity: 1;
+  }
+}
+
+#ads.close {
+  animation:rotateClose 2s;
+  -webkit-animation:rotateClose 2s; /* Safari 和 Chrome */
+}
+
+/* 从大到小，旋转淡出 */
+@keyframes rotateClose {
+  from {
+    transform:rotate(0deg) scale(1);
+    -webkit-transform:rotate(0deg) scale(1); /* Safari 和 Chrome */
+    opacity: 1;
+  }
+
+  to {
+    transform:rotate(720deg) scale(0);
+    -webkit-transform:rotate(720deg) scale(0); /* Safari 和 Chrome */
+    opacity: 0;
+  }
+}
+
+/* 从大到小，旋转淡出 */
+@-webkit-keyframes rotateClose {
+  from {
+    transform:rotate(0deg) scale(1);
+    -webkit-transform:rotate(0deg) scale(1); /* Safari 和 Chrome */
+    opacity: 1;
+  }
+
+  to {
+    transform:rotate(720deg) scale(0);
+    -webkit-transform:rotate(720deg) scale(0); /* Safari 和 Chrome */
+    opacity: 0;
+  }
+}
+ 
+#ads p{
+  opacity: .6;
+  margin: 25px 10px 10px;
+  padding: 10px;
+  background: #444;
+  border-radius: 3px;
+}
+ 
+.close{
+  float:right;
+  font-size:12px;
+  cursor:pointer;
+}
