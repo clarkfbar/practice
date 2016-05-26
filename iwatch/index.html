@@ -1,0 +1,130 @@
+<!-- HTML代码片段中请勿添加<body>标签 //-->
+<div id="area"></div>
+
+<style type="text/css">
+  
+  /*CSS源代码*/
+body{
+  background:#CFCFCF;
+}
+
+</style>
+<!-- 推荐开源CDN来选取需引用的外部JS //-->
+<script type="text/javascript" src="http://cdn.gbtags.com/bonsai/0.4.5/bonsai.min.js"></script>
+<script type="text/javascript">
+  /*Javascript代码片段*/
+/*Javascript代码片段*/
+ bonsai.run(document.getElementById('area'), {
+        code: run,
+        width: 200,
+        height: 200
+    });
+
+    function run() {
+        var secValue = 1000;
+        var boundary = 0.0001;
+        var step = Math.PI / 6, stepMin = Math.PI / 30;
+
+        var secScale = 60, minScale = 60 * 60, horScale = 60 * 60 * 12;
+        var sCounter, mCounter, hCounter;
+        var bg = new Arc(100, 100, 98, 1.5 * Math.PI, (3.5 - boundary) * Math.PI).addTo(stage)
+                .attr('fillColor', '#212121');
+        var ss = new Arc(100, 100, 70, 1.5 * Math.PI, 2 * Math.PI).addTo(stage)
+                .attr('strokeWidth', 12).attr('strokeColor', '#e91e63');
+        var mm = new Arc(100, 100, 55, 1.5 * Math.PI, 2 * Math.PI).addTo(stage)
+                .attr('strokeWidth', 12).attr('strokeColor', '#8bc34a');
+        var hh = new Arc(100, 100, 40, 1.5 * Math.PI, 2 * Math.PI).addTo(stage)
+                .attr('strokeWidth', 12).attr('strokeColor', '#00bcd4');
+
+        var drawScale = function () {
+            var rad = 90;
+            for (var i = 0; i < 60; i++) {
+                var x = (rad * Math.cos(stepMin * i) + 100);
+                var y = (rad * Math.sin(stepMin * i) + 100);
+                if (i % 5 == 0) {
+                    new Circle(x, y, 3).addTo(stage)
+                            .attr('fillColor', '#cccccc');
+                } else {
+                    new Circle(x, y, 1).addTo(stage)
+                            .attr('fillColor', '#cccccc');
+                }
+
+            }
+        };
+        var adjustClock = function () {
+//            var now = new Date('2015-08-18 23:59:20');
+            var now = new Date();
+            sCounter = now.getSeconds();
+            mCounter = now.getMinutes() * 60 + sCounter;
+            hCounter = Math.abs(now.getHours() - 12) * 60 * 60 + mCounter;
+            sCounter = sCounter >= secScale ? 0 : sCounter;
+            mCounter = mCounter >= minScale ? 0 : mCounter;
+            hCounter = hCounter >= horScale ? 0 : hCounter;
+
+            ss.attr({endAngle: 1.5 * Math.PI + stepMin * sCounter});
+            mm.attr({endAngle: 1.5 * Math.PI + stepMin / 60 * mCounter});
+            hh.attr({endAngle: 1.5 * Math.PI + step / 60 / 60 * hCounter});
+        };
+        var walking = function (xx, xd, scale) {
+            xx.animate(secValue + 'ms', {
+                endAngle: 1.5 * Math.PI + stepMin / scale * xd
+            }, {
+                easing: 'linear'
+            });
+        };
+        var walkend = function (xx, xd, scale, sumCounter) {
+            xx.animate((secValue - 100) + 'ms', {
+                endAngle: 1.5 * Math.PI + stepMin / scale * (sumCounter - boundary)
+            }, {
+                easing: 'linear',
+                onEnd: function () {
+                    xx.attr({endAngle: 1.5 * Math.PI});
+                }
+            });
+        };
+        var runSec = function () {
+            setInterval(function () {
+                sCounter++;
+                if (sCounter >= secScale) {
+                    sCounter = 0;
+                    walkend(ss, sCounter, 1, secScale);
+                } else {
+                    walking(ss, sCounter, 1);
+                }
+
+            }, secValue);
+        };
+        var runMin = function () {
+            setInterval(function () {
+                mCounter++;
+                if (mCounter >= minScale) {
+                    mCounter = 0;
+                    walkend(mm, mCounter, 60, minScale);
+                } else {
+                    walking(mm, mCounter, 60);
+                }
+            }, secValue);
+        };
+        var runHor = function () {
+            setInterval(function () {
+                hCounter++;
+                if (hCounter >= horScale) {
+                    hCounter = 0;
+                    walkend(hh, hCounter, 60 * 12, horScale);
+                } else {
+                    walking(hh, hCounter, 60 * 12);
+                }
+            }, secValue);
+        };
+
+        drawScale();
+        adjustClock();
+        //每分钟矫正一次时间
+        setInterval(function () {
+            adjustClock();
+        }, 60000);
+        runSec();
+        runMin();
+        runHor();
+    }
+</script>

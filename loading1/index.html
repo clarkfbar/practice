@@ -1,0 +1,47 @@
+<!-- HTML代码片段中请勿添加<body>标签 //-->
+<div class="loading"></div>
+
+<style type="text/css">
+  /*CSS源代码*/
+
+body {
+  background: orange;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -60px 0 0 -60px;
+  background: #eee;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 10px solid #D4D4D4;
+}
+.loading:after {
+  content: '';
+  background: trasparent;
+  width: 140%;
+  height: 140%;
+  position: absolute;
+  border-radius: 100%;
+  top: -20%;
+  left: -20%;
+  opacity: 0.7;
+  box-shadow: rgba(255, 255, 255, 0.8) -4px -5px 3px -3px;
+  animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+</style>
+<!-- 推荐开源CDN来选取需引用的外部JS //-->
+<script type="text/javascript" src="http://cdn.gbtags.com/prefixfree/1.0.7/prefixfree.min.js"></script>
