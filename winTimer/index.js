@@ -328,13 +328,13 @@ if(!Date.prototype.format){
           direction;
 
       if (cYear < showYear) {
-        direction = "left";
+        direction = "right";
       } else if(cYear > showYear) {
-        direction = "right";
-      } else if(cMonth < showMonth) {
         direction = "left";
-      } else if(cMonth > showMonth) {
+      } else if(cMonth < showMonth) {
         direction = "right";
+      } else if(cMonth > showMonth) {
+        direction = "left";
       } else {
         renderByDate(cYear, cMonth, cDay);
         $dateTable.find(".focus").removeClass("focus");
