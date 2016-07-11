@@ -13,7 +13,7 @@ settings:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;cache: false, // 是否开启本地缓存，默认关闭<br>
 &nbsp;&nbsp;&nbsp;&nbsp;pageSize: 10, // 每页大小。会传给后台，后台可以忽略不用。默认为10<br>
 &nbsp;&nbsp;&nbsp;&nbsp;defaultType: type1, // 默认的type，会自动初始化首页。如果不设置，需要手动调用初始化数据<br>
-&nbsp;&nbsp;&nbsp;&nbsp;urls: {<br> // 第一次初始化必须
+&nbsp;&nbsp;&nbsp;&nbsp;urls: {// 第一次初始化必须<br> 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type1: url1,<br> 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type2: url2,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type3: url3<br>
