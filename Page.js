@@ -1,134 +1,128 @@
-var PageData = (function(){
+var Cache = function(useCache){
+  /**
+  * _cache: {
+  *   type: [[list],[list],[list],[list]] 
+  * }
+  */
+  var _cache = {};
+
+  // 提供一个获取type下全部列表的方法，pageNum为null的时候可以调用。
+  // 否则，返回type对应pageNum的列表
+  function _getCache(type, pageNum) {
+    var tempCache = _cache[type];
+    if(!!tempCache) {
+      if(pageNum == null) {
+        return [].concat.apply([], tempCache);
+      } else if(!!tempCache[pageNum]) {
+        return tempCache[pageNum];
+      }
+    }
+  }
+
+  function _addCache(type, pageNum, data){
+    if(!_cache[type]) {
+      _cache[type] = [];
+    }
+    _cache[type][pageNum] = data;
+  }
+
+  function _checkCache(type) {
+    return _cache[type] ? _cache[type].length : 0;
+  }
+
+  function _empty(type){
+    if(!!type) {
+      _cache[type] = [];
+    } else {
+      _cache = {};
+    }
+  }
+
+  return {
+    getCache : useCache ? _getCache : $.noop, // 如果不是用cache的话，永远返回null
+    addCache : useCache ? _addCache : $.noop,
+    checkCache : useCache ? _checkCache : function(){return 0;}, // 如果不用cache的话，长度永远为0
+    empty : useCache ? _empty : $.noop
+  }
+}
+
+var PageData = function(options){
   var settings = {
     cache: false, // 缓存开关
     urls: null,  // {type: url, type2： url2, type3: url3}
     pageSize: 10
   };
 
-  var Cache = function(useCache){
-    /**
-    * _cache: {
-    *   type: [[list],[list],[list],[list]] 
-    * }
-    */
-    var _cache = {};
+  var _setting = Object.assign({}, settings, options);
+  var _cache = Cache(_setting.cache);
+  var _current; // {type, pageNum, pageSize}
 
-    // 提供一个获取type下全部列表的方法，pageNum为null的时候可以调用。
-    // 否则，返回type对应pageNum的列表
-    function _getCache(type, pageNum) {
-      var tempCache = _cache[type];
-      if(!!tempCache) {
-        if(pageNum == null) {
-          return [].concat.apply([], tempCache);
-        } else if(!!tempCache[pageNum]) {
-          return tempCache[pageNum];
-        }
-      }
+  // 获取对应的数据，会先检查缓存，如果缓存存在，那么用缓存。如果不存在，从后台拿
+  function _getData(data){
+    var defer = $.Deferred();
+    var res = _cache.getCache(data.type, data.pageNum);
+
+    if(!res) {
+      $.getJSON(_setting.urls[data.type], data, function(res){
+        _cache.addCache(data.type, data.pageNum, res);
+        defer.resolve(res);
+      }).fail(function(){
+        defer.reject();
+      });
+    } else {
+      defer.resolve(res);
     }
 
-    function _addCache(type, pageNum, data){
-      if(!_cache[type]) {
-        _cache[type] = [];
-      }
-      _cache[type][pageNum] = data;
-    }
-
-    function _checkCache(type) {
-      return _cache[type] ? _cache[type].length : 0;
-    }
-
-    function _empty(type){
-      if(!!type) {
-        _cache[type] = [];
-      } else {
-        _cache = {};
-      }
-    }
-
-    return {
-      getCache : useCache ? _getCache : $.noop, // 如果不是用cache的话，永远返回null
-      addCache : useCache ? _addCache : $.noop,
-      checkCache : useCache ? _checkCache : function(){return 0;}, // 如果不用cache的话，长度永远为0
-      empty : useCache ? _empty : $.noop
-    }
+    return defer.promise();
   }
 
-  function _init(options) {
-    var _setting = Object.assign({}, settings, options);
-    var _cache = Cache(_setting.cache);
-    var _current; // {type, pageNum, pageSize}
+  function _insert(){
+    var defer = $.Deferred();
 
-    // 获取对应的数据，会先检查缓存，如果缓存存在，那么用缓存。如果不存在，从后台拿
-    function _getData(data){
-      var defer = $.Deferred();
-      var res = _cache.getCache(data.type, data.pageNum);
+    var tempCurrent = Object.assign({}, _current);
+    tempCurrent.pageNum++;
+    _getData(tempCurrent).done(function(data){
+      _current.pageNum++;
+      defer.resolve(data);
+    }).fail(function(){
+      defer.reject("insert");
+    });
 
-      if(!res) {
-        $.getJSON(_setting.urls[data.type], data, function(res){
-          _cache.addCache(data.type, data.pageNum, res);
-          defer.resolve(res);
-        }).fail(function(){
-          defer.reject();
-        });
-      } else {
-        defer.resolve(res);
-      }
+    return defer.promise();
+  }
 
-      return defer.promise();
-    }
+  function _replace(type){
+    var defer = $.Deferred();
 
-    function _insert(){
-      var defer = $.Deferred();
+    var length = _cache.checkCache(type);
 
-      var tempCurrent = Object.assign({}, _current);
-      tempCurrent.pageNum++;
-      _getData(tempCurrent).done(function(data){
-        _current.pageNum++;
+    if( length > 0 ) {
+      _current = {type: type, pageNum: length - 1, pageSize: _setting.pageSize};
+      defer.resolve(_cache.getCache(type/*, null*/)); // 既然是replace, 那么如果有cache的话，就返回所有的列表
+    } else {
+      var temp = {type: type, pageNum: 0, pageSize: _setting.pageSize};
+      _getData(temp).done(function(data){
+        _current = Object.assign({}, temp);
         defer.resolve(data);
       }).fail(function(){
-        defer.reject("insert");
+        defer.reject("replace");
       });
-
-      return defer.promise();
     }
 
-    function _replace(type){
-      var defer = $.Deferred();
+    return defer.promise();
+  }
 
-      var length = _cache.checkCache(type);
-
-      if( length > 0 ) {
-        _current = {type: type, pageNum: length - 1, pageSize: _setting.pageSize};
-        defer.resolve(_cache.getCache(type/*, null*/)); // 既然是replace, 那么如果有cache的话，就返回所有的列表
-      } else {
-        var temp = {type: type, pageNum: 0, pageSize: _setting.pageSize};
-        _getData(temp).done(function(data){
-          _current = Object.assign({}, temp);
-          defer.resolve(data);
-        }).fail(function(){
-          defer.reject("replace");
-        });
-      }
-
-      return defer.promise();
-    }
-
-    function _getConfig(){
-      return Object.assign({}, _current);
-    }
-
-    return {
-      insert : _insert,
-      replace : _replace,
-      getConfig : _getConfig,
-      emptyCache : _cache.empty
-    }
+  function _getConfig(){
+    return Object.assign({}, _current);
   }
 
   return {
-    init: _init
+    insert : _insert,
+    replace : _replace,
+    getConfig : _getConfig,
+    emptyCache : _cache.empty
   }
-})();
+};
 
 var Page = (function(){
   var index = 0,
@@ -166,7 +160,7 @@ var Page = (function(){
 
   function _init(options){
     var _setting = Object.assign({}, settings, options);
-    var pageData = PageData.init(_setting.pageData);
+    var pageData = PageData(_setting.pageData);
     var $container = _setting.container,
         template = _setting.template;
 
