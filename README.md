@@ -7,14 +7,14 @@
 <br>
 settings:<br>
 {<br>
-&nbsp;&nbsp;container: "#id", // 也可以是jquery对象，或者其他selector<br>
-&nbsp;&nbsp;template: function, // 必须是一个function, 接收数据返回html<br>
+&nbsp;&nbsp;container: "#id", // 也可以是jquery对象，或者其他selector<br>，必须
+&nbsp;&nbsp;template: function, // 必须是一个function, 接收数据返回html<br>，第一次初始化必须
 &nbsp;&nbsp;pageData: {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;cache: false, // 是否开启本地缓存，默认关闭<br>
 &nbsp;&nbsp;&nbsp;&nbsp;pageSize: 10, // 每页大小。会传给后台，后台可以忽略不用。默认为10<br>
 &nbsp;&nbsp;&nbsp;&nbsp;defaultType: type1, // 默认的type，会自动初始化首页。如果不设置，需要手动调用初始化数据<br>
-&nbsp;&nbsp;&nbsp;&nbsp;urls: {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type1: url1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;urls: {<br> // 第一次初始化必须
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type1: url1,<br> 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type2: url2,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type3: url3<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
@@ -26,7 +26,7 @@ var page = $.Page.getInstance(settings); // 或者Page.getInstance(settings)<br>
 如果没有传入defaultType，那么需要在初始化后，手动调用page.initData(type)方法进行数据初始化。<br>
 <br>
 同时，Page.getInstance会根据container的不同，给不同的page对象。相同container会提供同一个page对象。<br>
-所以，在不同js文件中，不需要利用全局变量来分享page，可以直接通过getInstance同一个jquery对象来操作。<br>
+所以，在不同js文件中，不需要利用全局变量来分享page，可以直接通过getInstance同一个jquery对象来操作。注意：初始化一次后，下次获取只用传入container配置<br>
 <br>
 page提供5个方法，便于操作~<br>
 page.replace(type); // 更换当前界面, type为新的type<br>
