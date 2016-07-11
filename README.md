@@ -34,3 +34,9 @@ page.insert(); // 插入数据都后面<br>
 page.initData(); // 初始化数据，其实就是调用了replace<br>
 page.getPageInfo(); // 获取当前的配置信息 {type, pageNum, pageSize}<br>
 page.emptyCache(type); // 清除本地缓存。如果type不填，那么清楚所有缓存。注意：当清除当前type的缓存的时候，当前的列表会用新数据重新replace一遍<br>
+<br>
+<br>
+Page.js对container绑定了几个事件：<br>
+$container.on("insert.page", function(event, config, data){}) // insert数据成功后会trigger。config是当前页面的配置，获取的data<br>
+$container.on("replace.page", function(event, config, data){}) // replace......<br>
+$container.on("fail.page", function(event, type, config){}) // 获取数据失败以后会trigger。type是insert/replace, config是当前页面的配置<br>
