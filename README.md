@@ -7,8 +7,8 @@
 <br>
 settings:<br>
 {<br>
-&nbsp;&nbsp;container: "#id", // 也可以是jquery对象，或者其他selector<br>，必须
-&nbsp;&nbsp;template: function, // 必须是一个function, 接收数据返回html<br>，第一次初始化必须
+&nbsp;&nbsp;container: "#id", // 也可以是jquery对象，或者其他selector，必须<br>
+&nbsp;&nbsp;template: function, // 必须是一个function, 接收数据返回html，第一次初始化必须<br>
 &nbsp;&nbsp;pageData: {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;cache: false, // 是否开启本地缓存，默认关闭<br>
 &nbsp;&nbsp;&nbsp;&nbsp;pageSize: 10, // 每页大小。会传给后台，后台可以忽略不用。默认为10<br>
